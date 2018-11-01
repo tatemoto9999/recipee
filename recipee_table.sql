@@ -88,3 +88,38 @@ ALTER TABLE `recipee_table`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+/*
+  ログインIDを管理するテーブル
+*/
+CREATE TABLE `tb_user` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `crt_date` datetime NOT NULL DEFAULT sysdate,
+  `update_date` datetime NOT NULL DEFAULT sysdate,
+  `del_flg` int(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `tb_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+/*
+  ユーザーIDとレシピIDを紐付けるテーブル
+*/
+CREATE TABLE `tb_recipe_relation` (
+  `recipe_relation_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `recipe_id` int(11) NOT NULL,
+  `crt_date` datetime NOT NULL DEFAULT current_timestamp,
+  `update_date` datetime NOT NULL DEFAULT current_timestamp,
+  `del_flg` int(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 0
+)
+ALTER TABLE `tb_recipe_relation`
+  ADD PRIMARY KEY (`recipe_relation_id`);
+
+ALTER TABLE `tb_recipe_relation`
+  MODIFY `recipe_relation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;

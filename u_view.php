@@ -1,4 +1,11 @@
 <?php
+session_start();
+// ログイン状態チェック
+if (!isset($_SESSION["NAME"])) {
+    header("Location: Logout.php");
+    exit;
+}
+$userId = $_SESSION["USER_ID"];
 //データを受け取る
 $id = $_GET["id"]; //idデータを元に画像を表示させるようにセット！
 
@@ -14,10 +21,13 @@ try {
 
 //２．データ登録SQL作成
 //作ったテーブル名を書く場所  xxxにテーブル名を入れます
-$stmt = $pdo->prepare("SELECT * 
-FROM recipee_table 
+$stmt = $pdo->prepare("SELECT rec.* 
+FROM recipee_table as rec
+inner join tb_recipe_relation as rel
+on (rec.id = rel.recipe_id and rel.user_id = :userId)
 where id = :id"); //
-$stmt->bindParam(":id", $id); //
+$stmt->bindParam(":id", $id);
+$stmt->bindValue(":userId", $userId, PDO::PARAM_INT);
 $status = $stmt->execute();
 
 $view="";

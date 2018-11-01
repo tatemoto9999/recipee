@@ -1,4 +1,16 @@
 <?php
+// ini_set("display_errors", On);
+// error_reporting(E_ALL);
+session_start();
+// ログイン状態チェック
+if (!isset($_SESSION["USER_ID"])) {
+    header("Location: Logout.php");
+    exit;
+}
+
+$userId = $_SESSION["USER_ID"];
+$name = $_SESSION["NAME"];
+
 //1.  DB接続します xxxにDB名を入れます
 try {
 $pdo = new PDO('mysql:dbname=Tatemoto_19;charset=utf8;host=localhost','root','root');
@@ -8,7 +20,12 @@ $pdo = new PDO('mysql:dbname=Tatemoto_19;charset=utf8;host=localhost','root','ro
 
 //２．データ登録SQL作成
 //作ったテーブル名を書く場所  xxxにテーブル名を入れます
-$stmt = $pdo->prepare("SELECT * FROM recipee_table");
+$stmt = $pdo->prepare(
+	"SELECT rec.id, rec.indate, rec.food, rec.upfile 
+	FROM recipee_table as rec
+	inner join tb_recipe_relation as rel
+	on (rec.id = rel.recipe_id and rel.user_id = :userId)");
+$stmt->bindValue(":userId", $userId, PDO::PARAM_INT);
 $status = $stmt->execute();
 
 //３．データ表示
@@ -29,7 +46,6 @@ if($status==false){
     //.= 変数の前に文字が入っていた場合。データが上書きせずに一覧で表示される
     $view .= "</p>";
   }
-
 }
 ?>
 
@@ -112,7 +128,7 @@ if($status==false){
 						<li><a href="services.html">サービス</a></li>
 						<li><a href="pricing.html">価格</a></li>
 						<li><a href="contact.html">コンタクト</a></li>
-						<li class="cta"><a href="cook.html">つくる！</a></li>
+						<li class="cta"><a href="cook.php">つくる！</a></li>
 						<li class="active"><a href="select.php">my page</a></li>
 					</ul>
 				</nav>
