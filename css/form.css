@@ -1,0 +1,49 @@
+.form{
+    margin: 50px auto;
+    width:600px;
+    height:100%;
+    background: #ffeaea;
+    box-shadow: 0px 0px 0px 10px #ffeaea;
+    border: dashed 2px #ffc3c3;
+    border-radius: 8px;
+}
+
+.box{
+    width:600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.form dl{
+    display: flex;
+
+    padding: 8px;    
+}
+
+.form dt{
+    width:240px;
+}
+
+.form br{
+    line-height: 16px;
+}
+.form dd{
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+}
+
+.form span{
+    padding-bottom: 24px;
+}
+
+
+#send{
+    align-items: center;
+    text-align: center;
+    width:100%;
+    margin-bottom: 10px;
+
+}
