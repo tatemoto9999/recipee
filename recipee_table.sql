@@ -96,8 +96,8 @@ CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `crt_date` datetime NOT NULL DEFAULT sysdate,
-  `update_date` datetime NOT NULL DEFAULT sysdate,
+  `crt_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `del_flg` int(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
