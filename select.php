@@ -20,14 +20,20 @@ if($status==false){
 }else{
   //Selectデータの数だけ自動でループしてくれる $resultの中に「カラム名」が入ってくるのでそれを表示させる例
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .= "<p>";
+
     //$view .= $result["id"].":".$result["name"].$result["email"];
-    $view .= '<a href ="u_view.php?id='.$result["id"].'">';
-	$view .= $result["id"].$result["indate"].":".$result["food"];
+	$view .= '<div class= "food_item"><a href ="u_view.php?id='.$result["id"].'">';
 	$view .= "<img src='./files/".$result["upfile"]."' class = 'food_sub_image'>";
     $view .='</a>';
+	$view .= "<p>";
+	$view .= $result["indate"];
+	$view .= "</p>";
+	$view .= "<p>";
+	$view .= $result["food"];
+	$view .= "</p></div>";
+
     //.= 変数の前に文字が入っていた場合。データが上書きせずに一覧で表示される
-    $view .= "</p>";
+
   }
 
 }
@@ -151,7 +157,11 @@ if($status==false){
   		    </div>
 <!-- Main[Start] $view-->
 		<div>
-    <div class="container jumbotron"><?=$view?></div>
+	<div class="container jumbotron">
+		<div class="food_list">
+			<?=$view?>
+		</div>
+	</div>
 </div>
 <!-- Main[End] -->
 
