@@ -29,7 +29,11 @@ if($status==false){
     $view .= "<p>";  
     $view .= $result["food"];
     $view .= "</p>";
-    $view .= "<img src='./files/".$result["upfile"]."' class = 'food_image' >";
+	$view .= "<img src='./files/".$result["upfile"]."' class = 'food_image' >";
+	$view .= "<p>";  
+    $view .= $result["comment"];
+    $view .= "</p>";
+
     //.= 変数の前に文字が入っていた場合。データが上書きせずに一覧で表示される
     
 }

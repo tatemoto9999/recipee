@@ -857,13 +857,33 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .container_food{
   width:100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; 
-  align-items: center;
+  margin: auto;
   text-align: center;
 }
 
+.food_list{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.food_item{
+  margin: 20px 20px;
+  text-align: center;
+
+  
+}
+
+.container_select_food{
+  width:100%;
+  display: block;
+  margin: auto;
+  text-align: center; 
+}
+
+.container_select_food{}
 .food_image {
   max-width: 600px;
   min-width: 500px;
@@ -871,6 +891,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .food_sub_image {
   width: 200px;
+  height: 150px;
 }
 
 
