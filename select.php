@@ -127,7 +127,7 @@ if($status==false){
 	<header id="fh5co-header" role="banner">
 		<div class="container">
 			<div class="header-inner">
-				<h1><a href="index.html">Recipee</a></h1>
+				<h1><a href="index.php">Recipee</a></h1>
 				<nav role="navigation">
 					<ul>
 						<li><a href="work.html">会社概要</a></li>

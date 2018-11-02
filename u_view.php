@@ -164,14 +164,14 @@ if($status==false){
 	<header id="fh5co-header" role="banner">
 		<div class="container">
 			<div class="header-inner">
-				<h1><a href="index.html">Recipee</a></h1>
+				<h1><a href="index.php">Recipee</a></h1>
 				<nav role="navigation">
 					<ul>
 						<li><a href="work.html">会社概要</a></li>
 						<li><a href="services.html">サービス</a></li>
 						<li><a href="pricing.html">価格</a></li>
 						<li><a href="contact.html">コンタクト</a></li>
-						<li class="cta"><a href="cook.html">つくる！</a></li>
+						<li class="cta"><a href="cook.php">つくる！</a></li>
 						<li><a href="select.php">my page</a></li>
 						
 					</ul>
